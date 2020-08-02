@@ -77,6 +77,12 @@ def prune(
         weights[w_name].assign(w.reshape(shape))
         weights[w_name + "_m:0"].assign(m.reshape(shape))
 
+    # Important to recompile the model to get rid of the optimizer state
+    model.compile(
+        loss=model.loss,
+        optimizer=model.optimizer._name,
+        metrics=[m for m in model.metrics_names if m != "loss"],
+    )
     # The weights are set by reference, there is no need to return
     # the model. We return it for potential further compatibility reasons
     return model
