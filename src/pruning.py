@@ -16,6 +16,18 @@ def magnitude_saliency_criterion(w: np.array) -> np.array:
     return np.abs(w)
 
 
+def random_sailency_criterion(w: np.array) -> np.array:
+    """Pruning criterion. Purely random. For benchmarking and testing purposes.
+
+    Args:
+        w (numpy.array): 1-dimensional numpy array containing the weights to be pruned.
+
+    Returns:
+        np.array: vector of saliencies.
+    """
+    return np.random.rand(*w.shape)
+
+
 def prune(
     model: tf.keras.Model,
     prune_proportion: float,
