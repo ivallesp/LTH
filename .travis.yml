@@ -9,4 +9,4 @@ script:
 - poetry run flake8 src tests
 - poetry run nosetests -v --with-coverage --cover-tests --cover-package=.
 after_success:
-- codecov
+- poetry run codecov
