@@ -183,4 +183,3 @@ class TestReinitializeFunction(TestCase):
         for w in model.variables:
             if "_b:0" not in w.name:
                 self.assertAlmostEquals(0.75, (w.numpy() == 0).mean(), 3)
-

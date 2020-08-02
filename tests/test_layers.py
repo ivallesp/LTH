@@ -154,4 +154,3 @@ class TestLinearLayer(TestCase):
 
         self.assertEquals((5, 10), masks[1].shape)
         self.assertTrue((np.ones((5, 10)) == masks[1].numpy()).all())
-

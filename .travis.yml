@@ -1,0 +1,12 @@
+language: python
+python:
+- 3.7.3
+before_install:
+- pip install poetry
+install:
+- poetry install
+script:
+- poetry run flake8 src tests
+- poetry run nosetests -v --with-coverage --cover-tests --cover-package=.
+after_success:
+- codecov
